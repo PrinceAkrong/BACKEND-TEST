@@ -1,4 +1,5 @@
 # variable.tf
+# variable.tf
 
 variable "resource_group_name" {
   description = "Name of the Azure resource group"
@@ -10,12 +11,12 @@ variable "storage_account_name" {
   type        = string
 }
 
-variable "storage_container_name" {
-  description = "Name of the Azure Storage Accoun Container"
+variable "location" {
+  description = "Azure region where the resources will be deployed"
   type        = string
 }
 
-variable "location" {
-  description = "Azure region where the resources will be deployed"
+variable "storage_container_name" {
+  description = "Name of the Azure Storage Container"
   type        = string
 }
