@@ -27,3 +27,15 @@ resource "azurerm_storage_container" "st_acc_con" {
   depends_on = [azurerm_storage_account.st_acc]
 }
 
+terraform {
+  backend "azurerm" {
+    resource_group_name   = "RTResourcegrp"
+    storage_account_name = "RTStorage"
+    container_name       = "RTContainer"
+    key                  = "tf_statestore"
+  }
+}
+
+
+
+
