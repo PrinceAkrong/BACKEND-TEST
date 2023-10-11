@@ -19,6 +19,14 @@ resource "azurerm_storage_account" "st_acc" {
 
 }
 
+resource "azurerm_storage_container" "st_acc_con" {
+  name                  = var.storage_container_name
+  storage_account_name  = azurerm_storage_account.st_acc.name
+  container_access_type = "private"
+
+  depends_on = [azurerm_storage_account.st_acc]
+}
+
 terraform {
   backend "azurerm" {
     resource_group_name   = "RTResourcegrp"
@@ -26,14 +34,4 @@ terraform {
     container_name       = "RTContainer"
     key                  = "tf_statestore"
   }
-}
-
-
-
-resource "azurerm_storage_container" "st_acc_con" {
-  name                  = var.storage_container_name
-  storage_account_name  = azurerm_storage_account.st_acc.name
-  container_access_type = "private"
-
-  depends_on = [azurerm_storage_account.st_acc]
 }
