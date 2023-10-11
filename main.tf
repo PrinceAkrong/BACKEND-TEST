@@ -29,9 +29,9 @@ resource "azurerm_storage_container" "st_acc_con" {
 
 terraform {
   backend "azurerm" {
-    resource_group_name   = "RTResourcegrp"
-    storage_account_name = "RTStorage"
-    container_name       = "RTContainer"
+    resource_group_name   = "rtresourcegrp"
+    storage_account_name = "rtstorage"
+    container_name       = "rtcontainer"
     key                  = "tf_statestore"
   }
 }
